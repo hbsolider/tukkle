@@ -1,9 +1,17 @@
 import React from 'react';
-function App() {
+import {connect} from 'react-redux'
+function App({number}) {
   return (
     <div className="App" style={{display:'flex',alignItems:'center',justifyContent:'center',minHeight:'100vh'}}>
-      
+      {number}
     </div>
   );
 }
-export default App;
+
+const mapStateToProps = (state) => ({
+  number: state.globalState.number
+})
+
+const appConnect = connect(mapStateToProps)(App)
+
+export default appConnect;
